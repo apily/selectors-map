@@ -1,0 +1,15 @@
+{
+  "name": "selector-manager",
+  "repo": "apily/selector-manager",
+  "version": "0.0.1",
+  "description": "Element selector manager",
+  "keywords": ["element", "selector"],
+  "scripts": ["index.js"],
+  "dependencies": {
+  },
+  "development": {
+    "component/emitter": "*",
+    "component/assert": "*"
+  },
+  "license": "MIT"
+}
