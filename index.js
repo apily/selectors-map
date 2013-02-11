@@ -1,5 +1,5 @@
 
-/*
+/**
  * selector-manager
  * Element selector manager
  *
@@ -7,20 +7,20 @@
  * MIT License
  */ 
 
-/*
+/**
  * Expose `Manager`
  */
 
 module.exports = SelectorManager;
 
-/* 
+/**
  * Utilities
  */
 
 var object = {};
 var toString = object.toString;
 
-/*
+/**
  * SelectorManager
  * Create a selector manager.
  *
@@ -71,7 +71,7 @@ SelectorManager.prototype.bind = function(name, selector) {
  * @api public
  */
 
-EventManager.prototype.bind_all = function(obj) {
+SelectorManager.prototype.bind_all = function(obj) {
   Object.keys(obj).forEach(function(key) {
     this.bind(key, obj[key]);
   }, this);
