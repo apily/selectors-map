@@ -1,9 +1,9 @@
 {
-  "name": "selector-manager",
-  "repo": "apily/selector-manager",
+  "name": "selectors-ma[",
+  "repo": "apily/selectors-map",
   "version": "0.0.1",
   "description": "Element selector manager",
-  "keywords": ["element", "selector"],
+  "keywords": ["element", "selector", "map"],
   "scripts": ["index.js"],
   "dependencies": {
   },
