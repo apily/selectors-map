@@ -1,10 +1,10 @@
-# selector-manager
+# selectors-map
 
-Element selector component
+Element selectors map component
 
 ## Installation
 
-    $ component install apily/selector-manager
+    $ component install apily/selectors-map
 
 ## License
 
