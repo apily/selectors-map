@@ -1,6 +1,6 @@
 
 /**
- * selector-manager
+ * selectors-map
  * Element selector manager
  *
  * Copyright 2013 Enrico Marino and Federico Spini
@@ -8,72 +8,47 @@
  */ 
 
 /**
- * Expose `Manager`
+ * Expose `selectors_map`
  */
 
-module.exports = SelectorManager;
+module.exports = selectors_map;
 
 /**
- * Utilities
- */
-
-var object = {};
-var toString = object.toString;
-
-/**
- * SelectorManager
- * Create a selector manager.
- *
- * @param {Element} `el` element
- * @param {Object} `obj` object
- * @return {Manager} the event manager
- */
-
-function SelectorManager(el, obj) {
-  if (!(this instanceof SelectorManager)) {
-    return new SelectorManager(el, obj);
-  }
-
-  this.el = el;
-  this.obj = obj;
-}
-
-/**
- * bind
- * Bind `name` to the element that match `selector`.
+ * @function selector_map
+ * @descriptiorn
+ *    create an object of query selected elements
  *
  * @example
- *    selectors.bind('login', 'input[name=login]')
- *
- * @param {String} name name
- * @param {String} selector selector
- * @return {SelectorManager} this for chaining
- * @api public
+ *   //<div id="container">
+ *   //  <h1>hello</h1>
+ *   //  <div id="text">bla bla bla</div>
+ *   // </div>
+ *   var el = document.getElementById(container);
+ *   var selectors = {
+ *     "title": "h1" 
+ *     "text": "#text"
+ *   };
+ *   var map = selectors_map(el, selectors);
+ *   // {
+ *   //   "title": <h1>hello</h1>, 
+ *   //   "text": <div id="text">bla bla bla</div>
+ *   // } 
+ * 
+ * @param {Element} el element
+ * @param {Object} selectors selectors
+ * @param {Object} [result] selectors map
+ * @return {Object} the selectors map
  */
 
-SelectorManager.prototype.bind = function(name, selector) {
-  if (toString.call(name) === '[object Object]') {
-    return this.bind_all(name);
+function selectors_map (el, selectors, result) {
+  var result = result || {};
+  var selector;
+  var name;
+
+  for (name in selectors) {
+    selector = selectors[name];
+    object[name] = el.querySelector(selector);
   }
-  
-  this.obj[name] = this.el.querySelector(selector);
 
-  return this;
-};
-
-/**
- * bind_all
- * Bind `name` to the element that match `selector`
- * for each pair `name`/`selector` in `obj`.
- *
- * @param {Object} obj pairs `name`/`selector` to bind
- * @return {SelectorManager} this for chaining
- * @api public
- */
-
-SelectorManager.prototype.bind_all = function(obj) {
-  Object.keys(obj).forEach(function(key) {
-    this.bind(key, obj[key]);
-  }, this);
-  return this;
-};
+  return result;
+}
