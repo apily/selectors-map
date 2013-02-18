@@ -1,4 +1,3 @@
-
 /**
  * selectors-map
  * Element selector manager
@@ -47,7 +46,7 @@ function selectors_map (el, selectors, result) {
 
   for (name in selectors) {
     selector = selectors[name];
-    object[name] = el.querySelector(selector);
+    result[name] = el.querySelector(selector);
   }
 
   return result;
